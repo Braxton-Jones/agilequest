@@ -1,0 +1,131 @@
+/* SCSS HSL */
+$black: hsla(270, 30%, 4%, 1);
+$night: hsla(240, 10%, 8%, 1);
+$ghastly: rgb(66, 66, 66);
+$white-smoke: hsla(0, 0%, 96%, 1);
+$seasalt: rgb(243, 241, 241);
+$white: hsla(0, 0%, 100%, 1);
+
+// Transparent Colors
+$black-10: hsla(270, 30%, 4%, 0.1);
+$black-20: hsla(270, 30%, 4%, 0.2);
+$black-30: hsla(270, 30%, 4%, 0.3);
+$black-40: hsla(270, 30%, 4%, 0.4);
+$black-50: hsla(270, 30%, 4%, 0.5);
+$white-10: hsla(0, 0%, 100%, 0.1);
+$white-20: hsla(0, 0%, 100%, 0.2);
+$white-30: hsla(0, 0%, 100%, 0.3);
+$white-40: hsla(0, 0%, 100%, 0.4);
+$white-50: hsla(0, 0%, 100%, 0.5);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(
+  0deg,
+  #0a070dff,
+  #121216ff,
+  #f5f5f5ff,
+  #f8f8f8ff,
+  #ffffffff
+);
+$gradient-right: linear-gradient(
+  90deg,
+  #0a070dff,
+  #121216ff,
+  #f5f5f5ff,
+  #f8f8f8ff,
+  #ffffffff
+);
+$gradient-bottom: linear-gradient(
+  180deg,
+  #0a070dff,
+  #121216ff,
+  #f5f5f5ff,
+  #f8f8f8ff,
+  #ffffffff
+);
+$gradient-left: linear-gradient(
+  270deg,
+  #0a070dff,
+  #121216ff,
+  #f5f5f5ff,
+  #f8f8f8ff,
+  #ffffffff
+);
+$gradient-top-right: linear-gradient(
+  45deg,
+  #0a070dff,
+  #121216ff,
+  #f5f5f5ff,
+  #f8f8f8ff,
+  #ffffffff
+);
+$gradient-bottom-right: linear-gradient(
+  135deg,
+  #0a070dff,
+  #121216ff,
+  #f5f5f5ff,
+  #f8f8f8ff,
+  #ffffffff
+);
+$gradient-top-left: linear-gradient(
+  225deg,
+  #0a070dff,
+  #121216ff,
+  #f5f5f5ff,
+  #f8f8f8ff,
+  #ffffffff
+);
+$gradient-bottom-left: linear-gradient(
+  315deg,
+  #0a070dff,
+  #121216ff,
+  #f5f5f5ff,
+  #f8f8f8ff,
+  #ffffffff
+);
+$gradient-radial: radial-gradient(
+  #0a070dff,
+  #121216ff,
+  #f5f5f5ff,
+  #f8f8f8ff,
+  #ffffffff
+);
+
+// Typography
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$font-size-small: 0.75rem;
+$font-size-medium: 1rem;
+$font-size-large: 1.5rem;
+$font-size-extra-large: 2rem;
+
+// Spacing
+$letter-spacing-default: 0.05em;
+$gap-default: 1rem;
+$margin-default: 1rem;
+$padding-default: 1rem;
+$padding-inline-default: 1.5rem;
+$padding-inline-small: 1rem;
+
+.title {
+  font-size: $font-size-extra-large;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-default;
+  line-height: 1.5;
+  font-family: var(--font-karla);
+}
+
+.body {
+  font-size: $font-size-medium;
+  font-weight: $font-weight-normal;
+  line-height: 1.35;
+  color: $black;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-default;
+  font-family: var(--font-inconsolata);
+  margin: 1rem 0;
+}
+
+
