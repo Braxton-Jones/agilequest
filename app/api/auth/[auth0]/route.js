@@ -2,4 +2,4 @@
 import { handleAuth } from '@auth0/nextjs-auth0';
 
 console.log('Hello');
-export const GET = handleAuth();
+export const GET = handleAuth({});
