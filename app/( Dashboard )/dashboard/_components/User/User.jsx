@@ -19,9 +19,7 @@ export default async function User() {
           <h3 className={classnames.user__name}>{name}</h3>
           <Link href="#">Settings</Link> {/* Link to settings */}
         </div>
-        <div className={classnames.user__info_bottom}>
-          {/* Level Bar */}
-        </div>
+        <div className={classnames.user__info_bottom}>{/* Level Bar */}</div>
       </div>
     </section>
   );

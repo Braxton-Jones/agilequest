@@ -1,71 +1,98 @@
-// schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  username  String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            Int       @id @default(autoincrement())
+  username      String    @unique
+  level         Int       @default(1)
+  levelProgress Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
   // Relationships
-  projects  Project[]
+  projects      Project[]
+  rewards       Reward[]
 }
-
 
 model Project {
-  id          Int       @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String
   description String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
   // Relationships
-  user        User      @relation(fields: [userId], references: [id])
+  user        User     @relation(fields: [userId], references: [id])
   userId      Int
-  battlepasses Battlepass[]
+  sprints     Sprint[]
 }
 
-
-model Battlepass {
-  id          Int       @id @default(autoincrement())
+model Sprint {
+  id          Int      @id @default(autoincrement())
   title       String
   description String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  startDate   DateTime @default(now())
+  endDate     DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
   // Relationships
-  project     Project   @relation(fields: [projectId], references: [id])
+  project     Project  @relation(fields: [projectId], references: [id])
   projectId   Int
   tasks       Task[]
+  rewards     Reward[]
 }
-
 
 model Task {
-  id          Int       @id @default(autoincrement())
-  title       String
-  description String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id             Int       @id @default(autoincrement())
+  title          String
+  description    String?
+  priority       Int?      @default(0)
+  completed      Boolean   @default(false)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
   // Relationships
-  battlepass  Battlepass @relation(fields: [battlepassId], references: [id])
-  battlepassId Int
-  subtasks    Subtask[]
+  parentSprint   Sprint    @relation(fields: [parentSprintId], references: [id])
+  parentSprintId Int
+  subTasks       Subtask[] @relation("ParentTaskToSubTasks")
 }
 
-// Subtask model
 model Subtask {
-  id          Int       @id @default(autoincrement())
-  title       String
-  completed   Boolean   @default(false)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id              Int       @id @default(autoincrement())
+  title           String
+  completed       Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
   // Relationships
-  task        Task      @relation(fields: [taskId], references: [id])
-  taskId      Int
+  parentTask      Task?     @relation("ParentTaskToSubTasks", fields: [parentId], references: [id])
+  parentId        Int?
+  subTasks        Subtask[] @relation("ParentSubtaskToSubSubTasks")
+  parentSubtask   Subtask?  @relation("ParentSubtaskToSubSubTasks", fields: [parentSubtaskId], references: [id])
+  parentSubtaskId Int?
 }
+
+model Reward {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  price       Int?
+  url        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  // Relationships
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  sprint      Sprint?  @relation(fields: [sprintId], references: [id])
+  sprintId    Int?
+}
+
+// Users will be able to create their own rewards, then they can assign them to a sprint
+// This will allow them to have a reward for completing a sprint
+// Projects are made up of sprints, sprints are made up of tasks
+// Tasks can have subtasks
+// Rewards are stored in a separate table, and can be assigned to a sprint
+// This means that the battlepass system gets all the rewards from the sprints
