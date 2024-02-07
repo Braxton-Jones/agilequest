@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../( Landing_Page )/landingpage.module.scss";
+import styles from "../landingpage.module.scss";
 import Link from "next/link";
 import { getSession } from "@auth0/nextjs-auth0";
 

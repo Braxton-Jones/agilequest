@@ -1,18 +1,19 @@
 import Link from "next/link";
 import React from "react";
 import classnames from "./dashboard.module.scss";
-import Button from "../../_components/Button";
+import Button from "../../( Landing_Page )/_components/Button";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import User from "./_components/User/User";
 
 const Dashboard = () => {
   return (
     <section className={classnames.dashboard}>
       <div className={classnames.dashboard__container}>
         <div className={classnames.dashboard__header}>
-          {/* User Section */}
+          <User />
           {/* Battlepass */}
           {/* Settings */}
-          <Button />
+          <Link href="/api/auth/logout">Logout</Link>
         </div>
       </div>
     </section>
