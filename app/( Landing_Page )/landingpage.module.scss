@@ -1,4 +1,4 @@
-@import '../styles/variables.scss';
+@import "../styles/variables.scss";
 
 // font-family: var(--font-inconsolata);
 // font-family: var(--font-karla);
@@ -21,26 +21,22 @@
     margin-bottom: 4rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     .landingpage__header {
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      @media screen and (max-width: 500px) {
+        flex-direction: column;
         align-items: center;
-        flex-wrap: wrap;
-         
-        @media screen and (max-width: 500px) {
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            
-        }
-
-
-
+        gap: 1rem;
+      }
     }
 
     .landingpage__content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       body {
         margin: 1rem 0;
       }
@@ -73,34 +69,34 @@
   }
 }
 
-.login_button{
-    all: unset;
-    background-color: $black-50;
-    color: $seasalt;
-    font-weight: $font-weight-bold;
-    font-family: var(--font-karla);
-    padding: calc($padding-default + .2vw) calc($padding-default + 2.5vw);
-    border-radius: 5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    letter-spacing: calc($letter-spacing-default + .025em);
+.login_button {
+  all: unset;
+  background-color: $black-50;
+  color: $seasalt;
+  font-weight: $font-weight-bold;
+  font-family: var(--font-karla);
+  padding: calc($padding-default + 0.2vw) calc($padding-default + 2.5vw);
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: calc($letter-spacing-default + 0.025em);
 
-    &:hover{
-        background-color: $white;
-        color: $black-50;
-        border: 2px solid $black-50;
-    }
+  &:hover {
+    background-color: $white;
+    color: $black-50;
+    border: 2px solid $black-50;
+  }
 }
 
-.hollow{
-    background-color: $white;
-    border: 2px solid $black-50;
-    color: $black-50;
-    cursor: pointer;
+.hollow {
+  background-color: $white;
+  border: 2px solid $black-50;
+  color: $black-50;
+  cursor: pointer;
 
-    &:hover{
-        background-color: $black-50;
-        color: $white;
-        border: none;
-    }
+  &:hover {
+    background-color: $black-50;
+    color: $white;
+    border: none;
+  }
 }

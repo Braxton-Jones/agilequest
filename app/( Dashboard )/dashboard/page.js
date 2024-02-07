@@ -1,15 +1,22 @@
-import Link from 'next/link';
-import React from 'react';
-import classnames from './dashboard.module.scss';
+import Link from "next/link";
+import React from "react";
+import classnames from "./dashboard.module.scss";
+import Button from "../../_components/Button";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
-export default function Dashboard() {
-  return <section className={classnames.dashboard}>
-    <div className={classnames.dashboard__container}>
-      <div className={classnames.dashboard__header}>
-        {/* User Section */}
-        {/* Battlepass */}
-        {/* Settings */}
+const Dashboard = () => {
+  return (
+    <section className={classnames.dashboard}>
+      <div className={classnames.dashboard__container}>
+        <div className={classnames.dashboard__header}>
+          {/* User Section */}
+          {/* Battlepass */}
+          {/* Settings */}
+          <Button />
+        </div>
       </div>
-    </div>
-  </section>;
-}
+    </section>
+  );
+};
+
+export default withPageAuthRequired(Dashboard);
