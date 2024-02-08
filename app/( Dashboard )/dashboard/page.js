@@ -2,12 +2,13 @@ import Link from "next/link";
 import classnames from "./dashboard.module.scss";
 import Button from "../../( Landing_Page )/components/Button";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import User from "./_components/user/User";
-import Settings from "./_components/settings/Settings";
+import User from "./_components/User/User";
+import Settings from "./_components/Settings/Settings";
 import ProjectBoard from "./_components/board/ProjectBoard";
-
+import prisma from "@/lib/prisma";
 
 const Dashboard = () => {
+  
   return (
     <section className={classnames.dashboard}>
       <div className={classnames.dashboard__container}>
