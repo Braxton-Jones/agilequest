@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "./landingpage.module.scss";
-import Button from "./_components/Button";
+import Button from "./components/Button";
 
 export default function LandingPage() {
   return (

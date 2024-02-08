@@ -69,3 +69,6 @@ model Subtask {
   task        Task      @relation(fields: [taskId], references: [id])
   taskId      Int
 }
+
+//  tasks can be placed in a backlog
+//  tasks can be placed in a sprint

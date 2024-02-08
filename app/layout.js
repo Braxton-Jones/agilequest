@@ -8,6 +8,7 @@ import "./styles/variables.scss";
 
 import { Karla, Inconsolata } from "next/font/google";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
+import { Providers } from "./_utils/themeprovider";
 
 export const karla = Karla({
   subsets: ["latin"],
@@ -22,11 +23,31 @@ export const inconsolata = Inconsolata({
 });
 
 export default function RootLayout({ children }) {
+  // return (
+  //   <html lang="en" className={`${karla.variable} ${inconsolata.variable}`} suppressHydrationWarning>
+  //     <UserProvider>
+        
+  //       <body>
+  //         <Providers>
+  //         {children}
+  //         </Providers>
+  //       </body>
+     
+  //     </UserProvider>
+  //   </html>
+  // )
+
   return (
-    <html lang="en" className={`${karla.variable} ${inconsolata.variable}`}>
+    <html lang="en" className={`${karla.variable} ${inconsolata.variable}`} suppressHydrationWarning>
       <UserProvider>
-        <body>{children}</body>
+        
+        <body>
+   
+          {children}
+         
+        </body>
+     
       </UserProvider>
     </html>
-  );
+  )
 }
