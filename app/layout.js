@@ -26,28 +26,26 @@ export default function RootLayout({ children }) {
   // return (
   //   <html lang="en" className={`${karla.variable} ${inconsolata.variable}`} suppressHydrationWarning>
   //     <UserProvider>
-        
+
   //       <body>
   //         <Providers>
   //         {children}
   //         </Providers>
   //       </body>
-     
+
   //     </UserProvider>
   //   </html>
   // )
 
   return (
-    <html lang="en" className={`${karla.variable} ${inconsolata.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${karla.variable} ${inconsolata.variable}`}
+      suppressHydrationWarning
+    >
       <UserProvider>
-        
-        <body>
-   
-          {children}
-         
-        </body>
-     
+        <body>{children}</body>
       </UserProvider>
     </html>
-  )
+  );
 }

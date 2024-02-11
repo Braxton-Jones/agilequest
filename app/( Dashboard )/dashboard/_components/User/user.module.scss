@@ -1,11 +1,62 @@
+@import "../../../../styles/variables.scss";
+
 .user {
   display: flex;
 
+  gap: 1rem;
   &__avatar {
-    // Styles for the avatar element
+    align-self: center;
+    img {
+      border-radius: 20px;
+    }
   }
 
   &__info {
-    // Styles for the info element
+    font-family: var(--font-karla);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .user__name {
+      font-size: calc(0.75rem + 0.5vw);
+      font-weight: 700;
+    }
+    .user__progress {
+      min-height: 1.5rem;
+      width: 100%;
+      background-color: #1b1b1b;
+      border-radius: 10px;
+
+      .user_progress_bar {
+        border-radius: 9.5px 0 0 10px;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 0.5rem;
+        color: white;
+
+        .level {
+          min-width: 20ch;
+        }
+      }
+    }
+    .settings_btn {
+      width: fit-content;
+      border-radius: 10px;
+      min-height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.5rem;
+      background-color: #1b1b1b;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  &__name {
+    // styles for name
   }
 }

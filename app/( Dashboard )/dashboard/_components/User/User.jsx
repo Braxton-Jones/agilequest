@@ -15,11 +15,7 @@ export default async function User() {
         <Image src={picture} alt={name} width={70} height={70} />
       </div>
       <div className={classnames.user__info}>
-        <div className={classnames.user__info_top}>
-          <h3 className={classnames.user__name}>{name}</h3>
-          <Link href="#">User-Settings</Link> {/* Link to settings */}
-        </div>
-        <div className={classnames.user__info_bottom}>{/* Level Bar */}</div>
+        <h3 className={classnames.user__name}>{name}</h3>
       </div>
     </section>
   );

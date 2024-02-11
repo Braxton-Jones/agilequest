@@ -1,0 +1,82 @@
+@import "../../../../styles//variables.scss";
+.projectboard {
+  &__container {
+    font-family: var(--font-karla);
+    margin-top: 3rem;
+
+    .projectboard__header {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+
+      .projectboard__project_select {
+        position: relative;
+        h5 {
+          cursor: pointer;
+          background-color: #1b1b1b;
+          color: #fff;
+          width: fit-content;
+          padding: 0.65rem;
+          border-radius: 5px;
+        }
+        ul {
+          list-style: none;
+          margin-top: 10px;
+          min-width: fit-content;
+          position: absolute;
+          background-color: #1b1b1b;
+          border-radius: 5px;
+
+          li {
+            padding: 0.5rem;
+            cursor: pointer;
+            max-width: 30ch;
+            text-wrap: wrap;
+            color: #fff;
+          }
+        }
+      }
+
+      .projectboard__views {
+        .radio_inputs {
+          position: relative;
+          display: flex;
+          flex-wrap: wrap;
+          border-radius: 0.5rem;
+          background-color: #eee;
+          box-sizing: border-box;
+          box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+          padding: 0.25rem;
+          width: 300px;
+          font-size: 14px;
+        }
+
+        .radio_inputs .radio {
+          flex: 1 1 auto;
+          text-align: center;
+        }
+
+        .radio_inputs .radio input {
+          display: none;
+        }
+
+        .radio_inputs .radio .name {
+          display: flex;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          border-radius: 0.5rem;
+          border: none;
+          padding: 0.5rem 0;
+          color: rgba(51, 65, 85, 1);
+          transition: all 0.2s ease-in-out;
+        }
+
+        .radio_inputs .radio input:checked + .name {
+          background-color: #fff;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import classnames from "./landingpage.module.scss";
 import Button from "./components/Button";
 
 export default function LandingPage() {
+ 
   return (
     <section className={classnames.landingpage}>
       <div className={classnames.landingpage__container}>

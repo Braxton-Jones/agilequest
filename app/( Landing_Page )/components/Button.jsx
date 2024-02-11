@@ -9,8 +9,8 @@ export default async function Button() {
   console.log(user, "user");
   if (user) {
     return (
-      <Link href="/api/auth/logout" className={styles.login_button}>
-        Logout
+      <Link href="/dashboard" className={styles.login_button}>
+        Return to Dashboard
       </Link>
     );
   }
