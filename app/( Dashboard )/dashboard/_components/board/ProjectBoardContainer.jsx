@@ -10,7 +10,7 @@ export default function ProjectBoardContainer(params) {
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
   const [projectOne, projectTwo, projectThree] = params.projects || []
   const [selectedProject, setSelectedProject] = useState(projectOne);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("Home");
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -61,8 +61,8 @@ export default function ProjectBoardContainer(params) {
                 <input
                   type="radio"
                   name="radio"
-                  value="Project Home"
-                  checked={selectedOption === "Project Home"}
+                  value="Home"
+                  checked={selectedOption === "Home"}
                   onChange={handleOptionChange}
                   disabled={!selectedProject}
                 />

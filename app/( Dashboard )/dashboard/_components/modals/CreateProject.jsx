@@ -1,6 +1,7 @@
 'use client';
 import { useFormState, useFormStatus } from "react-dom";
 import { createProject } from "@/app/actions";
+import { redirect } from "next/navigation";
 const initialState ={
     message: ""
 
@@ -16,6 +17,9 @@ function SubmitButton() {
   }
 export default function CreateProject(){
   const [state, formAction] = useFormState(createProject, initialState)
+  if(state?.redirectUrl){
+    redirect(state.redirectUrl)
+  }
    
     return (
         <>

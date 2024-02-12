@@ -18,13 +18,29 @@ return{ message: "Test"}
 
 export async function createProject(prevState, formData) {
     const session = await getSession();
-    console.log(session, "session");
     const name = formData.get("name");
     const description = formData.get("description");
-    if (!name || !description) {
-        return { message: "Name and description required" };
+    if (!name) {
+        return { message: "Name required" };
     }
-    // Check if user is in the database if not add them
+    try{
+        const project = await prisma.project.create({
+            data: {
+               title: name,
+                description: description,
+                user: {
+                    connect: {
+                        gmailNickname: session.user.nickname,
+                    },
+                },
+            },
+        });
+        if (!project) throw new Error("Project not created");
+        return { message: "Project created", redirectUrl: "/dashboard" };
+    }catch(err){
+        console.log(err, "err");
+        return { message: "There is an error", error: err };
+    }
     
     revalidatePath("/dashboard");
     return { message: "Project created" };
